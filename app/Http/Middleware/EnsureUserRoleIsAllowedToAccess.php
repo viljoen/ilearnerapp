@@ -30,6 +30,7 @@ class EnsureUserRoleIsAllowedToAccess
             $userRole = auth()->user()->role;
             echo 'UserRole: '. $userRole.'<br>';
 
+
             if ( UserPermission::isRoleHaveRighToAccess($userRole, $currentRouteName)
                 || in_array($currentRouteName, $this->defaultUserAccessRole()[$userRole])){
                 return $next($request);

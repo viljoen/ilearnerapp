@@ -53,12 +53,12 @@
     {{-- Modal Form --}}
     <x-jet-dialog-modal wire:model="modalFormVisible">
         <x-slot name="title">
-            {{ __('User Permission') }} {{$modelId}}
+            {{ __('Team User Role Permissions') }} {{$modelId}}
         </x-slot>
 
         <x-slot name="content">
             <div class="mt-4">
-                <x-jet-label for="role" value="{{ __('Role') }}" />
+                <x-jet-label for="role" value="{{ __('Team User Role') }}" />
                 <select id="role" class="block appearance-none w-full bg-gray-100 border" type="text" wire:model="role" placeholder="Role"/>
                 <option value="">-- Select a Role --</option>
                 @foreach(App\Models\User::userRoleList() as $key => $value)
@@ -69,7 +69,7 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="route" value="{{ __('Route') }}" />
+                <x-jet-label for="route" value="{{ __('Role Route Access') }}" />
                 <select id="route" class="block appearance-none w-full bg-gray-100 border" type="text" wire:model="route" placeholder="Route"/>
                 <option value="">-- Select a Route --</option>
                 @foreach(App\Models\UserPermission::routeNameList() as $key => $value)

@@ -32,7 +32,7 @@
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
-
+        {{('Team:')}} {{ Auth::user()->currentTeam->name }} {{('&&_ID:')}} {{ Auth::user()->currentTeam->id }}
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation-menu')
 
@@ -66,7 +66,7 @@
         </div>
 
         @stack('modals')
-
+        @include('popper::assets')
         @livewireScripts
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="{{ asset('/js/socket.js') }}"></script>

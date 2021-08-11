@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Laravel\Jetstream\Jetstream;
 use Laravel\Jetstream\TeamInvitation as JetstreamTeamInvitation;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class TeamInvitation extends JetstreamTeamInvitation
 {
+    use LogsActivity
     /**
      * The attributes that are mass assignable.
      *

@@ -13,7 +13,16 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        <span @popper(Your info dashboard)>{{ __('iUpdate') }}</span>
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        <span @popper(Your admin panel)>{{ __('iManage') }}</span>
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        <span @popper(Your course manager)>{{ __('iTeach') }}</span>
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        <span @popper(Your notification manager)>{{ __('iNotify') }}</span>
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('courses') }}" :active="request()->routeIs('courses')">
                         {{ __('Courses') }}
@@ -27,6 +36,7 @@
                     <x-jet-nav-link href="{{ route('messenger') }}" :active="request()->routeIs('messenger')">
                         {{ __('iMessenger') }}
                     </x-jet-nav-link>
+
                 </div>
             </div>
 

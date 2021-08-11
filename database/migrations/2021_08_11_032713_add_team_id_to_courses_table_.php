@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCreatedByToCoursesTable extends Migration
+class AddTeamIdToCoursesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,11 +15,10 @@ class AddCreatedByToCoursesTable extends Migration
     {
         Schema::table('courses', function (Blueprint $table) {
             //the columns we wanted to add
-            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('team_id')->nullable();
 
             //the column which is referenced by this table
-            $table->foreign('created_by')->references('id')->on('users');
-
+            $table->foreign('team_id')->references('id')->on('teams');
         });
     }
 

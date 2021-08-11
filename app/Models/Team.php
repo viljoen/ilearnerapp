@@ -7,10 +7,11 @@ use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Team extends JetstreamTeam
 {
-    use HasFactory;
+    use HasFactory, LogsActivity;
 
     /**
      * The attributes that should be cast to native types.
