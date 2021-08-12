@@ -100,9 +100,11 @@
             connection.onclose = function(){
                 console.log("Connection was closed by the server!");
                 console.log("Reconnecting after 3 seconds...")
-                setTimeout(() => {
-                window.location.reload();
-                },3000);
+                /**
+                 * setTimeout(() => {
+                 * window.location.reload();
+                 * },3000);
+                 */
 
             }
 
