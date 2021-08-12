@@ -3,25 +3,32 @@
 namespace App\Http\Livewire;
 
 use App\Models\Course;
+use App\Models\Team;
+use App\Traits\Multitenantable;
 use Illuminate\Validation\Rule;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Collection;
-use App\Traits\Multitenantable;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 
 class Courses extends Component
 {
-    use withPagination, Multitenantable;
+    use withPagination;
     public $modalFormVisible = false;
     public $modalConfirmDeleteVisible = false;
     public $modelId;
     public $name;
     public $slug;
     public $description;
+
+
+    /**
+     * Global scope auth check for Current Team id
+     *
+     */
+
 
 
     /**
@@ -38,14 +45,6 @@ class Courses extends Component
 
 
 
-    /**
-     * adding the relationship for the created_by field
-     * Stating that it links to the User class
-     * @return mixed
-     */
-    public function user(){
-        return $this->belongsTo(User::class, 'created_by');
-    }
 
     /**
      * This assists with auto populate

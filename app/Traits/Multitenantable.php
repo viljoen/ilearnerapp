@@ -11,15 +11,17 @@ trait Multitenantable
 
          if(auth()->check()){
              static ::creating(function($model){
-                 $model->team_id = auth()->user()->currentTeam->id();
+                 $model->team_id = Auth::user()->currentTeam->id();
              });
 
              static::addGlobalScope('created_user_team', function(Builder $builder){
                  if (auth()->check()){
-                     return $builder->where('team_id', auth()->user()->currentTeam->id());
+                     return $builder->where('team_id', Auth::user()->currentTeam->id());
                  }
              });
          }
 
      }
+
+
 }

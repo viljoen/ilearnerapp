@@ -39,6 +39,9 @@ class AppServiceProvider extends ServiceProvider
          * for more information see the CourseObserver class file
          */
 
+        /**
+         *
+         */
         Course::observe(CourseObserver::class);
 
     }

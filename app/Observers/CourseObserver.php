@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Models\Course;
 
+
 class CourseObserver
 {
     /**
@@ -18,10 +19,9 @@ class CourseObserver
         if(auth()->check()){
             //when a course is created, set the the created_by field to the user id
             $course->created_by = auth()->user()->id;
+            $course->team_id = auth()->user()->currentTeam->id;
             $course->save();
         }
-
-
 
     }
 
