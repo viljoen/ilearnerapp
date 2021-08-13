@@ -39,7 +39,6 @@ Route::group(['middleware' =>[
         return view('admin.messenger');
     })->name('messenger');
 
-
 });
 
 Route::get('/', function () {
