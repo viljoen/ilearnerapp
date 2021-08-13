@@ -24,6 +24,9 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         <span @popper(Your notification manager)>{{ __('iNotify') }}</span>
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="/iLearnerChat">
+                        <span @popper(Your Chat Space)>{{ __('iLearnerChat') }}</span>
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('courses') }}" :active="request()->routeIs('courses')">
                         {{ __('Courses') }}
                     </x-jet-nav-link>
