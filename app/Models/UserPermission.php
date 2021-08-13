@@ -18,7 +18,8 @@ class UserPermission extends Model
             'courses' => 'Courses',
             'users' => 'Users',
             'user-permissions' => 'User Permissions',
-            'messenger' => 'iMessenger'
+            'messenger' => 'iMessenger',
+            '/iLearnerChat' => 'iLearnerChat'
         ];
     }
 
