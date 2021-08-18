@@ -16,6 +16,7 @@ class UserPermission extends Model
         return[
             'dashboard' => 'Dashboard',
             'courses' => 'Courses',
+            'course-show' => 'View Course',
             'users' => 'Users',
             'user-permissions' => 'User Permissions',
             'messenger' => 'iMessenger',

@@ -27,6 +27,10 @@ Route::group(['middleware' =>[
         return view('admin.courses');
     })->name('courses');
 
+    Route::get('/courses/{id}',function ($id) {
+        return view('admin.course-show',['id' => $id]);
+    })->name('course-show');
+
     Route::get('/users',function () {
         return view('admin.users');
     })->name('users');

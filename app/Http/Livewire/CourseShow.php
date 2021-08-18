@@ -4,21 +4,21 @@ namespace App\Http\Livewire;
 
 use App\Models\Course;
 use App\Models\Team;
-use App\Traits\Multitenantable;
-use Illuminate\Validation\Rule;
+
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 
-class Courses extends Component
+class CourseShow extends Component
 {
+
     use withPagination;
     public $modalFormVisible = false;
     public $modalConfirmDeleteVisible = false;
-    public $modelId;
+    public $courseId;
     public $name;
     public $slug;
     public $description;
@@ -38,7 +38,7 @@ class Courses extends Component
     public function rules(){
         return[
             'name' => 'required',
-            'slug' => ['required', Rule::unique('courses','slug')->ignore($this->modelId)],
+            'slug' => ['required', Rule::unique('courses','slug')->ignore($this->courseId)],
             'description' => 'required',
         ];
     }
@@ -66,8 +66,6 @@ class Courses extends Component
         Course::create($this->modelData());
         $this->modalFormVisible = false;
         $this->resetVars();
-        session()->flash('message', 'Course successfully created.');
-        return redirect()->to('/courses');
     }
     /**
      * Shows the form modal
@@ -98,10 +96,10 @@ class Courses extends Component
      * to null
      */
     public function resetVars(){
-            $this->modelId = null;
-            $this->name = null;
-            $this->slug = null;
-            $this->description = null;
+        $this->courseId = null;
+        $this->name = null;
+        $this->slug = null;
+        $this->description = null;
     }
 
     /**
@@ -138,10 +136,8 @@ class Courses extends Component
      */
     public function update(){
         $this->validate();
-        Course::find($this->modelId)->update($this->modelData());
+        Course::find($this->courseId)->update($this->modelData());
         $this->modalFormVisible = false;
-        session()->flash('message', 'Course successfully updated.');
-        return redirect()->to('/courses/'.$this->modelId);
     }
 
     /**
@@ -153,7 +149,7 @@ class Courses extends Component
     public function updateShowModal($id){
         $this->resetValidation();
         $this->resetVars();
-        $this->modelId = $id;
+        $this->courseId = $id;
         $this->modalFormVisible = true;
         $this->loadModel();
     }
@@ -163,7 +159,7 @@ class Courses extends Component
      * of this component
      */
     public function loadModel(){
-        $data = Course::find($this->modelId);
+        $data = Course::find($this->courseId);
         $this->name = $data->name;
         $this->slug = $data->slug;
         $this->description = $data->description;
@@ -176,11 +172,9 @@ class Courses extends Component
      */
     public function delete(){
 
-        Course::destroy($this->modelId);
+        Course::destroy($this->courseId);
         $this->modalConfirmDeleteVisible = false;
         $this->resetPage();
-        session()->flash('message', 'Course successfully deleted.');
-        return redirect()->to('/courses');
     }
 
     /**
@@ -189,7 +183,7 @@ class Courses extends Component
      */
     public function deleteShowModal($id){
 
-        $this->modelId = $id;
+        $this->courseId = $id;
         $this->modalConfirmDeleteVisible = true;
         $this->loadModel();
     }
@@ -201,7 +195,7 @@ class Courses extends Component
      */
     public function render()
     {
-        return view('livewire.courses',[
+        return view('livewire.course-show',[
             'data' => $this->read()
         ]);
     }
