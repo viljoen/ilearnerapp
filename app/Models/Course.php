@@ -15,6 +15,8 @@ class Course extends Model
     use HasFactory, LogsActivity,SoftDeletes;
     protected $guarded = [];
 
+    protected $table = 'courses';
+
     protected static $logAttributes = ['name', 'slug'];
     protected static $logName = 'course';
 
