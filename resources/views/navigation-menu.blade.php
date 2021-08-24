@@ -18,7 +18,7 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         <span @popper(Your admin panel)>{{ __('iManage') }}</span>
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('courses') }}" :active="request()->routeIs('courses')">
                         <span @popper(Your course manager)>{{ __('iTeach') }}</span>
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
@@ -27,9 +27,7 @@
                     <x-jet-nav-link href="/iLearnerChat">
                         <span @popper(Your Chat Space)>{{ __('iLearnerChat') }}</span>
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('courses') }}" :active="request()->routeIs('courses')">
-                        {{ __('Courses') }}
-                    </x-jet-nav-link>
+
                     <x-jet-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
                         {{ __('Users') }}
                     </x-jet-nav-link>
