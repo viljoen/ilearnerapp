@@ -172,7 +172,7 @@
 
                         <div x-show="tab == '#learning'" x-cloak>
                             <div class="p-2">
-                                <p>This should be the student enrolments</p>
+                                <p>This should be the learning plan outline for the course</p>
                             </div>
                         </div>
 
