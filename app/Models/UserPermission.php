@@ -17,6 +17,7 @@ class UserPermission extends Model
             'dashboard' => 'Dashboard',
             'courses' => 'Courses',
             'course-show' => 'View Course',
+            'medias' => 'Media Library',
             'users' => 'Users',
             'user-permissions' => 'User Permissions',
             'messenger' => 'iMessenger',

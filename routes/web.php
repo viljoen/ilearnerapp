@@ -39,6 +39,10 @@ Route::group(['middleware' =>[
         return view('admin.user-permissions');
     })->name('user-permissions');
 
+    Route::get('/media',function () {
+        return view('admin.medias');
+    })->name('medias');
+
     Route::get('/messenger',function () {
         return view('admin.messenger');
     })->name('messenger');

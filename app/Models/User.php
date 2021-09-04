@@ -11,8 +11,11 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable implements MustVerifyEmail
+
+class User extends Authenticatable implements MustVerifyEmail, HasMedia
 {
     use HasApiTokens;
     use HasFactory;
@@ -21,6 +24,8 @@ class User extends Authenticatable implements MustVerifyEmail
     use Notifiable;
     use TwoFactorAuthenticatable;
     use LogsActivity;
+    use InteractsWithMedia;
+
 
     /**
      * The attributes that are mass assignable.
