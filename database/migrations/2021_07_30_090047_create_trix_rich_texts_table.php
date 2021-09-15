@@ -14,6 +14,7 @@ class CreateTrixRichTextsTable extends Migration
     public function up()
     {
         Schema::create('trix_rich_texts', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->unsignedBigInteger('id')->autoIncrement();
             $table->string('field');
             $table->morphs('model');

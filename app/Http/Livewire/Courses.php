@@ -16,6 +16,10 @@ use Livewire\WithPagination;
 class Courses extends Component
 {
     use withPagination;
+    public $perPage = 5;
+    public $search = '';
+    public $orderBy = 'id';
+    public $orderAsc = true;
     public $modalFormVisible = false;
     public $modalConfirmDeleteVisible = false;
     public $modelId;
@@ -127,7 +131,9 @@ class Courses extends Component
      * The read function to return records
      */
     public function read(){
-        return Course::paginate(5);
+        return Course::search($this->search)
+            ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
+            ->paginate($this->perPage);
 
     }
 

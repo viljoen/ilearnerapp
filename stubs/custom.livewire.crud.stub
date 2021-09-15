@@ -19,7 +19,10 @@ class {{}} extends Component
     * use withPagination;
     */
     use withPagination;
-
+    public $perPage = 5;
+    public $search = '';
+    public $orderBy = 'id';
+    public $orderAsc = true;
     public $modalFormVisible = false;
     public $modalConfirmDeleteVisible = false;
     public $modelId;
@@ -61,6 +64,8 @@ class {{}} extends Component
              {{}}::create($this->modelData());
              $this->modalFormVisible = false;
              $this->resetVars();
+             session()->flash('message', '{{}} successfully created.');
+             return redirect()->to('/{{}}');
          }
 
      /**
@@ -142,7 +147,9 @@ class {{}} extends Component
            *                }
            */
               public function read(){
-                  return {{}}::paginate(5);
+                  return {{}}::search($this->search)
+                               ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
+                               ->paginate($this->perPage);
               }
 
            /**

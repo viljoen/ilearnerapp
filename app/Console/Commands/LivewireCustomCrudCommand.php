@@ -113,6 +113,8 @@ class LivewireCustomCrudCommand extends Command
                 $this->nameOfTheClass, // Name of the class
                 $this->nameOfTheModelClass, // Name of the model class
                 $this->nameOfTheModelClass, // Name of the model class
+                $this->nameOfTheClass, // Name of the class
+                $this->nameOfTheModelClass, // Name of the model class
                 $this->nameOfTheModelClass, // Name of the model class
                 $this->nameOfTheModelClass, // Name of the model class
                 $this->nameOfTheModelClass, // Name of the model class

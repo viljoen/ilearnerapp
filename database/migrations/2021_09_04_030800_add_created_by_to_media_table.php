@@ -14,7 +14,11 @@ class AddCreatedByToMediaTable extends Migration
     public function up()
     {
         Schema::table('media', function (Blueprint $table) {
-            //
+            //the columns we wanted to add
+            $table->unsignedBigInteger('created_by')->nullable();
+
+            //the column which is referenced by this table
+            $table->foreign('created_by')->references('id')->on('users');
         });
     }
 

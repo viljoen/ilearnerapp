@@ -1,11 +1,55 @@
 <div class="p-6">
-    <div class="flex items-center justify-end px-4 py-3 text-right sm:px-6">
-        <x-jet-button wire:click="createShowModal">
+    {{-- Search Contol filter --}}
+    <div class=" w-full flex pb-10">
+        <div class="w-full mx-1 px-1 py-3 sm:px-2">
+            <span @popper(Search for the course)>
+                <input wire:model.debounce.400ms="search" type="text" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Search courses...">
+            </span>
+        </div>
+    </div>
+    {{-- Order, number of Results and create button --}}
+    <div class="w-full flex pb-10 justify-end">
+        {{-- Order By --}}
+        <div class="w-2/6 relative px-1 py-3 mx-1">
+            <span @popper(Order Results By)>
+                <select wire:model="orderBy" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                <option value="id">ID</option>
+                <option value="name">Name</option>
+                <option value="slug">URL</option>
+                </select>
+            </span>
+        </div>
+        {{-- Ascending Descending Order --}}
+        <div class="w-2/6 relative px-1 py-3 mx-1">
+            <span @popper(Change Order listing)>
+                <select wire:model="orderAsc" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                    <option value="1">Ascending</option>
+                    <option value="0">Descending</option>
+                </select>
+            </span>
+        </div>
+        {{-- Number of Results filter--}}
+        <div class="w-2/6 relative px-1 py-3 mx-1">
+            <span @popper(Change number of results)>
+                <select wire:model="perPage" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                    <option>5</option>
+                    <option>10</option>
+                    <option>25</option>
+                    <option>50</option>
+                </select>
+            </span>
+        </div>
+        {{-- Create button --}}
+        <div class="flex items-center justify-end px-4 py-3 text-right sm:px-6">
+            <x-jet-button wire:click="createShowModal">
             <span @popper(Add a Course)><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg></span>
-        </x-jet-button>
+            </x-jet-button>
+        </div>
     </div>
+
+    {{-- Create Confirmation --}}
     <div>
         @if (session()->has('message'))
             <div class="alert alert-success">

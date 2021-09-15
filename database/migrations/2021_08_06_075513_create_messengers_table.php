@@ -14,6 +14,7 @@ class CreateMessengersTable extends Migration
     public function up()
     {
         Schema::create('messengers', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
             $table->bigInteger('room_id');
             $table->bigInteger('user_id');

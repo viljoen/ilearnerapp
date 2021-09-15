@@ -14,7 +14,11 @@ class AddTeamIdToMediaTable extends Migration
     public function up()
     {
         Schema::table('media', function (Blueprint $table) {
-            //
+            //the columns we wanted to add
+            $table->unsignedBigInteger('team_id')->nullable();
+
+            //the column which is referenced by this table
+            $table->foreign('team_id')->references('id')->on('teams');
         });
     }
 

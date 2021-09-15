@@ -15,6 +15,7 @@ class AddDeletedAtToMediaTable extends Migration
     {
         Schema::table('media', function (Blueprint $table) {
             //
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

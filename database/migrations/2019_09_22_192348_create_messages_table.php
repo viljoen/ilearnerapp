@@ -14,6 +14,7 @@ class CreateMessagesTable extends Migration
     public function up()
     {
         Schema::create('ch_messages', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->bigInteger('id');
             $table->string('type');
             $table->bigInteger('from_id');

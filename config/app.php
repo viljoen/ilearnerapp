@@ -177,6 +177,10 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
 
+        /*
+         * Dingo laravel Service
+         */
+        Dingo\Api\Provider\DingoServiceProvider::class,
     ],
 
     /*
