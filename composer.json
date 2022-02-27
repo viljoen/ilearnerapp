@@ -21,7 +21,7 @@
         "rollbar/rollbar-laravel": "^7.0",
         "spatie/laravel-activitylog": "^3.17",
         "spatie/laravel-analytics": "^3.11",
-        "spatie/laravel-medialibrary": "^9.0.0",
+        "spatie/laravel-medialibrary": "9.0.0",
         "te7a-houdini/laravel-trix": "^2.0"
     },
     "require-dev": {

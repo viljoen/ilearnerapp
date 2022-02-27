@@ -43,12 +43,20 @@
                                 </svg>
                                 </span>Zip</a>
             <a class="px-4 border-b-2 border-gray-900 hover:border-teal-300"
-               href="#" x-on:click.prevent="tab='#other'">
-                                <span @popper(Other)>
+               href="#" x-on:click.prevent="tab='#assessments'">
+                                <span @popper(Assessments)>
                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
                                     </svg>
-                                </span>Other</a>
+                                </span>Assessments</a>
+
+            <a class="px-4 border-b-2 border-gray-900 hover:border-teal-300"
+               href="#" x-on:click.prevent="tab='#swayppt'">
+                                <span @popper(Sway & PPT library)>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                                </span>SwayPPt</a>
 
             <a class="px-4 border-b-2 border-gray-900 hover:border-teal-300"
                href="#" x-on:click.prevent="tab='#trash'">
@@ -74,20 +82,7 @@
                         {{ __('Add Course') }}
                     </x-jet-button>
                 </div>
-                <form action="{{route('avatar.store')}}" method="POST">
-                    @csrf
-                    <div class="flex w-full h-screen items-center justify-center bg-grey-lighter">
-                        <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white">
-                            <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                            </svg>
-                            <span class="mt-2 text-base leading-normal">Select a file</span>
-                            <input type='file' class="hidden" />
-                        </label>
-                        <input type="submit" name="upload" value="upload" class="btn btn-primary">
-                    </div>
 
-                </form>
 
 
 
@@ -240,9 +235,15 @@
             </div>
         </div>
 
-        <div x-show="tab == '#other' " x-cloak>
+        <div x-show="tab == '#assessments' " x-cloak>
             <div class="p-2">
-                <p>This is the other tab</p>
+                <p>This is the Assessments tab</p>
+            </div>
+        </div>
+
+        <div x-show="tab == '#swayppt'" x-cloak>
+            <div class="p-2">
+                <p>Sway PPT library</p>
             </div>
         </div>
 
