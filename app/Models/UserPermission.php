@@ -21,7 +21,9 @@ class UserPermission extends Model
             'users' => 'Users',
             'user-permissions' => 'User Permissions',
             'messenger' => 'iMessenger',
-            '/iLearnerChat' => 'iLearnerChat'
+            'forum' => 'iForum',
+            'blogpost' => 'iBlog',
+            'todo' => 'iDo',
         ];
     }
 

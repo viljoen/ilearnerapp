@@ -35,46 +35,46 @@
                                 </span>Enrolments</a>
 
                             <a class="px-4 border-b-2 border-gray-900 hover:border-teal-300"
-                               href="#" x-on:click.prevent="tab='#learning'">
-                                <span @popper(Course Delivery Structure)>
+                               href="#" x-on:click.prevent="tab='#resources'">
+                                <span @popper(Course shared resource feed)>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                                         </svg>
-                                </span>Learning Plan</a>
+                                </span>Resource Feed</a>
 
                             <a class="px-4 border-b-2 border-gray-900 hover:border-teal-300"
-                               href="#" x-on:click.prevent="tab='#elearning'">
-                                <span @popper(eLearning Content)>
+                               href="#" x-on:click.prevent="tab='#livechat'">
+                                <span @popper(Live Chat Sessions)>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                                     </svg>
-                                </span>eLearning</a>
+                                </span>Live Chat</a>
 
                             <a class="px-4 border-b-2 border-gray-900 hover:border-teal-300"
-                               href="#" x-on:click.prevent="tab='#activities'">
-                                <span @popper(Assessments and Tasks)>
+                               href="#" x-on:click.prevent="tab='#discussion'">
+                                <span @popper(Group Discussion Forums)>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                       <path d="M12 14l9-5-9-5-9 5 9 5z" />
                                       <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
                                     </svg>
-                                </span>Activities</a>
+                                </span>Discussion</a>
 
                             <a class="px-4 border-b-2 border-gray-900 hover:border-teal-300"
                                href="#" x-on:click.prevent="tab='#gradebook'">
-                                <span @popper(Learner course results)>
+                                <span @popper(Learner assessments and results)>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                                     </svg>
-                                </span>Gradebook</a>
+                                </span>Assessments</a>
 
                             <a class="px-4 border-b-2 border-gray-900 hover:border-teal-300"
-                               href="#" x-on:click.prevent="tab='#certify'">
-                                <span @popper(Learner certification)>
+                               href="#" x-on:click.prevent="tab='#calendar'">
+                                <span @popper(Events listing)>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                                     </svg>
-                                </span>Certification</a>
+                                </span>Calendar</a>
 
                         </div>
 
@@ -170,33 +170,33 @@
                             </div>
                         </div>
 
-                        <div x-show="tab == '#learning'" x-cloak>
+                        <div x-show="tab == '#resources'" x-cloak>
                             <div class="p-2">
-                                <p>This should be the learning plan outline for the course</p>
+                                <p>This should be resources sharing timeline per group including links to assessments, post should have an expiration date?</p>
                             </div>
                         </div>
 
-                        <div x-show="tab == '#elearning'" x-cloak>
+                        <div x-show="tab == '#livechat'" x-cloak>
                             <div class="p-2">
-                                <p>This should be the elearning content</p>
+                                <p>This should be live session setup, tracking and engagements... Live chat session have a start and close widnow</p>
                             </div>
                         </div>
 
-                        <div x-show="tab == '#activities'" x-cloak>
+                        <div x-show="tab == '#discussion'" x-cloak>
                             <div class="p-2">
-                                <p>This should be the other activities which occur in the course</p>
+                                <p>This should be discussion forum management and access</p>
                             </div>
                         </div>
 
                         <div x-show="tab == '#gradebook'" x-cloak>
                             <div class="p-2">
-                                <p>This should be the gradebook</p>
+                                <p>This should be the assessment listing, gradebook and certification</p>
                             </div>
                         </div>
 
-                        <div x-show="tab == '#certify' " x-cloak>
+                        <div x-show="tab == '#calendar' " x-cloak>
                             <div class="p-2">
-                                <p>This should be the learner certification record</p>
+                                <p>This should be all activities related to time listing</p>
                             </div>
                         </div>
 

@@ -15,20 +15,21 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         <span @popper(Your info dashboard)>{{ __('iUpdate') }}</span>
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        <span @popper(Your admin panel)>{{ __('iManage') }}</span>
-                    </x-jet-nav-link>
+
                     <x-jet-nav-link href="{{ route('courses') }}" :active="request()->routeIs('courses')">
                         <span @popper(Your course manager)>{{ __('iTeach') }}</span>
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('medias') }}" :active="request()->routeIs('medias')">
                         <span @popper(Your media library>{{ __('iMedia') }}</span>
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        <span @popper(Your notification manager)>{{ __('iNotify') }}</span>
+                    <x-jet-nav-link href="{{ route('todo') }}" :active="request()->routeIs('dashboard')">
+                        <span @popper(Your Todos)>{{ __('iTask') }}</span>
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="/iLearnerChat">
-                        <span @popper(Your Chat Space)>{{ __('iLearnerChat') }}</span>
+                    <x-jet-nav-link href="{{ route('blogpost') }}" :active="request()->routeIs('dashboard')">
+                        <span @popper(Your Blogs)>{{ __('iBlog') }}</span>
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{route('forum')}}">
+                        <span @popper(Your Forums)>{{ __('iForum') }}</span>
                     </x-jet-nav-link>
 
                     <x-jet-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">

@@ -47,6 +47,17 @@ Route::group(['middleware' =>[
         return view('admin.messenger');
     })->name('messenger');
 
+    Route::get('/forum',function () {
+        return view('admin.forums');
+    })->name('forum');
+
+    Route::get('/blog',function () {
+        return view('admin.blogposts');
+    })->name('blogpost');
+
+    Route::get('/todo',function () {
+        return view('admin.todos');
+    })->name('todo');
 });
 
 Route::get('/', function () {
