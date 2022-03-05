@@ -14,8 +14,19 @@ class CreateForumsTable extends Migration
     public function up()
     {
         Schema::create('forums', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
             $table->timestamps();
+
+            $table->unsignedBigInteger('team_id')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
+
+            $table->softDeletes();
+        });
+
+        Schema::create('forums', function (Blueprint $table) {
+            $table->foreign('team_id')->references('id')->on('teams');
+            $table->foreign('created_by')->references('id')->on('users');
         });
     }
 
