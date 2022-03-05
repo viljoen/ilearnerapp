@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Todo;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class TodoFactory extends Factory
 {
@@ -23,6 +24,9 @@ class TodoFactory extends Factory
     {
         return [
             //
+            'name'=> $this->faker->name(),
+            'description'=>$this->faker->paragraph(3),
+            'isCompleted'=>false,
         ];
     }
 }

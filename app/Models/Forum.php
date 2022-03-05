@@ -61,7 +61,7 @@ class Forum extends Model
     public function team(){
         return $this->belongsTo(Team::class, 'team_id');
     }
-
+     */
     public static function search($search)
     {
         return empty($search) ? static::query()
@@ -69,7 +69,7 @@ class Forum extends Model
                 ->orWhere('name', 'like', '%'.$search.'%')
                 ->orWhere('slug', 'like', '%'.$search.'%');
     }
-     */
+
 
 
 

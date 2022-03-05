@@ -34,6 +34,10 @@ class Todos extends Component
     * public $slug;
     * public $description;
     */
+    public $name;
+    public $description;
+    public $isCompleted;
+
 
 
 
@@ -50,7 +54,10 @@ class Todos extends Component
      * @return array
      */
         public function rules(){
-
+            return[
+                'name' => 'required',
+                'description' => 'required',
+            ];
         }
 
 
@@ -93,6 +100,11 @@ class Todos extends Component
        * @return array
        */
           public function modelData(){
+              return[
+                  'name' => $this->name,
+                  'description' => $this->description,
+                  'isCompleted' => $this->isCompleted,
+              ];
 
           }
 
@@ -109,6 +121,10 @@ class Todos extends Component
         */
 
             public function resetVars(){
+                $this->modelId = null;
+                $this->name = null;
+                $this->description = null;
+                $this->isCompleted = null;
 
             }
 
@@ -142,14 +158,15 @@ class Todos extends Component
           /**
            * The read function to return records
            * See example below of paginated return
+           *
            * public function read(){
            *                    return Todo::paginate(5);
            *                }
            */
               public function read(){
                   return Todo::search($this->search)
-                               ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
-                               ->paginate($this->perPage);
+                      ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
+                      ->paginate($this->perPage);
               }
 
            /**
@@ -188,6 +205,9 @@ class Todos extends Component
               */
                  public function loadModel(){
                      $data = Todo::find($this->modelId);
+                     $this->name = $data->name;
+                     $this->description = $data->description;
+                     $this->isCompleted = $data->isCompleted;
 
                  }
 

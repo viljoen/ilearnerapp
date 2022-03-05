@@ -2,8 +2,8 @@
     {{-- Search Contol filter --}}
         <div class=" w-full flex pb-10">
             <div class="w-full mx-1 px-1 py-3 sm:px-2">
-                <span @popper(Search for the course)>
-                    <input wire:model.debounce.400ms="search" type="text" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Search courses...">
+                <span @popper(Search todos)>
+                    <input wire:model.debounce.400ms="search" type="text" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Search todos...">
                 </span>
             </div>
         </div>
@@ -15,7 +15,7 @@
                     <select wire:model="orderBy" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
                     <option value="id">ID</option>
                     <option value="name">Name</option>
-                    <option value="slug">URL</option>
+                        <option value="description">Description</option>
                     </select>
                 </span>
             </div>
@@ -42,7 +42,7 @@
             {{-- Create button --}}
             <div class="flex items-center justify-end px-4 py-3 text-right sm:px-6">
                 <x-jet-button wire:click="createShowModal">
-                <span @popper(Add a Course)><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <span @popper(Add a Task)><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg></span>
                 </x-jet-button>
@@ -66,9 +66,9 @@
                     <table class="w-full divide-y divide-gray-200">
                         <thead>
                         <tr>
-                            <th class="px-6 py-3 br-gray-50 sm:text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Column 1</th>
-                            <th class="px-6 py-3 br-gray-50 sm:text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Column 2</th>
-                            <th class="px-6 py-3 br-gray-50 sm:text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Column 3</th>
+                            <th class="px-6 py-3 br-gray-50 sm:text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                            <th class="px-6 py-3 br-gray-50 sm:text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                            <th class="px-6 py-3 br-gray-50 sm:text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Completed</th>
                             <th class="px-6 py-3 br-gray-50 sm:text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider ">actions</th>
                         </tr>
                         </thead>
@@ -76,18 +76,18 @@
                         @if($data->count())
                             @foreach($data as $item)
                                 <tr>
-                                    <td class="px-6 py-4 text-left text-sm whitespace-no-wrap">{{'Record1'}}</td>
-                                    <td class="px-6 py-4 text-left text-sm whitespace-no-wrap">{{'Record2'}}</td>
-                                    <td class="px-6 py-4 text-left text-sm whitespace-no-wrap">{{'Record3'}}</td>
+                                    <td class="px-6 py-4 text-left text-sm whitespace-no-wrap">{{$item->name}}</td>
+                                    <td class="px-6 py-4 text-left text-sm whitespace-no-wrap">{{!!$item->description!!}}</td>
+                                    <td class="px-6 py-4 text-left text-sm whitespace-no-wrap">{{$item->isCompleted}}</td>
                                     <td class="px-6 py-4 text-right text-sm">
                                         <a href="/courses/{{$item->id}}"><x-jet-button>
-                                        <span @popper(View the Course)><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <span @popper(View the Task)><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                         </svg></span>
                                     </x-jet-button></a>
                                     <x-jet-button wire:click="updateShowModal({{ $item->id }})">
-                                        <span @popper(Update a Course)><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <span @popper(Update a Task)><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                         </svg></span>
                                     </x-jet-button>
@@ -101,7 +101,7 @@
                             @endforeach
                         @else
                             <tr>
-                                <td class="px-6 py-4 text-left text-sm whitespace-no-wrap" colspan="4">No Courses Found</td>
+                                <td class="px-6 py-4 text-left text-sm whitespace-no-wrap" colspan="4">No Tasks Found</td>
                             </tr>
                         @endif
 
@@ -127,7 +127,7 @@
         <x-slot name="content">
             <div class="mt-4">
                 <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="email" wire:model.debounce.800ms="name" placeholder="Course Name"/>
+                <x-jet-input id="name" class="block mt-1 w-full" type="email" wire:model.debounce.800ms="name" placeholder="Todo"/>
                 @error('name') <span class="error">{{$message}}</span>@enderror
             </div>
             <div class="mt-4">
